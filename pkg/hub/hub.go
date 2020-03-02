@@ -33,12 +33,12 @@ func Start() (*Hub, error) {
 		listener:   listener,
 	}
 
-	go hub.Listen()
+	go hub.listen()
 
 	go func() {
 		for {
 			conn, err := listener.Accept()
-			if err != nil {
+			if err != nil || conn == nil {
 				return
 			}
 
@@ -83,9 +83,8 @@ func (h *Hub) getClient(conn net.Conn) (*models.HubClient, error) {
 	}, nil
 }
 
-// Listen spins up channel consumer to keep track of clinet join/leave and
-// application exit
-func (h *Hub) Listen() {
+// spins up channel consumer to keep track of clinet join/leave and application exit
+func (h *Hub) listen() {
 	for {
 		select {
 		case c := <-h.register:
