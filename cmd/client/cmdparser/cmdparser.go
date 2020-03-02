@@ -14,8 +14,8 @@ type CmdParser struct {
 	reader *bufio.Reader
 }
 
-// NewCmdParser returns pointer to new instance of CmdParser
-func NewCmdParser(stdin io.Reader) *CmdParser {
+// New returns pointer to new instance of CmdParser
+func New(stdin io.Reader) *CmdParser {
 	return &CmdParser{
 		reader: bufio.NewReader(stdin),
 	}

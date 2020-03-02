@@ -18,7 +18,7 @@ import (
 * establish connection and listen for incoming messages
  */
 func main() {
-	cmdp := cmdparser.NewCmdParser(os.Stdin)
+	cmdp := cmdparser.New(os.Stdin)
 
 	uid, err := cmdp.AskForUserID()
 	checkFatal(err)

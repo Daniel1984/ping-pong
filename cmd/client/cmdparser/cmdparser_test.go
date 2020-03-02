@@ -57,7 +57,7 @@ func TestAskForUserID(t *testing.T) {
 			stdin := &bytes.Buffer{}
 			stdin.Write([]byte(tc.inputVal))
 
-			cmdp := cmdparser.NewCmdParser(stdin)
+			cmdp := cmdparser.New(stdin)
 			gotID, err := cmdp.AskForUserID()
 
 			tc.expectedErr(t, err)
@@ -108,7 +108,7 @@ func TestAskForFriendIDs(t *testing.T) {
 			stdin := &bytes.Buffer{}
 			stdin.Write([]byte(tc.inputVal))
 
-			cmdp := cmdparser.NewCmdParser(stdin)
+			cmdp := cmdparser.New(stdin)
 			gotID, err := cmdp.AskForFriendIDs(tc.inputUserID)
 
 			tc.expectedErr(t, err)
