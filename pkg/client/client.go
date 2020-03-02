@@ -43,11 +43,11 @@ func (c *Client) receive() {
 			switch v := fmt.Sprintf("%s", msg[:length]); {
 			case v == "user already connected":
 				log.Printf("%s", v)
-				c.socket.Close()
+				c.Close()
 				os.Exit(1)
 			case v == "server shutdown":
 				log.Printf("%s", v)
-				c.socket.Close()
+				c.Close()
 				os.Exit(1)
 			default:
 				log.Printf("%s", v)
