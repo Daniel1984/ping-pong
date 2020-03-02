@@ -23,3 +23,6 @@
   - We would need to make sure that instance, server runs on, has enough resources or have multiple instances of the server running. Meaning we would need to scale vertically or horizontally.
 - How design of your application will change if there will be more than one instance of the server
   - Would need to introduce a message broker / pub sub. Could be something like rabbitmq, redis, kafka etc. Each instance would be subscribed to centralized broker and would be writing and reading messages from in order to communicate between the clients that exist on different instances.
+
+### TODO
+- profiling
